@@ -18,10 +18,10 @@ app.engine('handlebars', exphbs({defaultLayout: 'main',
 partialsDir: path.join(__dirname, "/views/layouts/partial")}));
 app.set('view engine', 'handlebars');
 
-mongoose.Promise = Promise;
 
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Article";
+mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
 
