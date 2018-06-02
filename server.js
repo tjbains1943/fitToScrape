@@ -6,7 +6,6 @@ var request = require("request");
 var exphbs  = require('express-handlebars');
 var PORT = 3000;
 var cheerio = require("cheerio");
-var db = require("./models"); 
 var path = require("path");
 var app = express();
 var Note = require("./models/notes.js");

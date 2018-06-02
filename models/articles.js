@@ -6,7 +6,6 @@ const ArticleSchema = new Schema({
     type: String,
     required: true,
     sparse: true,
-    unique: true 
   },
   link: {
     type: String,
