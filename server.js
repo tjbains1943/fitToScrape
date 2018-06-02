@@ -27,14 +27,6 @@ partialsDir: path.join(__dirname, "/views/layouts/partial")}));
 app.set('view engine', 'handlebars');
 
 
-
-mongoose.Promise = Promise;
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-} else {
-  mongoose.connect("mongodb://localhost/Articles");
-}
-
 app.get("/", function(req, res) {
     Article.find({"saved": false}, function(error, data) {
       var hbsObject = {
