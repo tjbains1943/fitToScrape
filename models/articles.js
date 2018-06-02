@@ -5,7 +5,8 @@ const ArticleSchema = new Schema({
   title: {
     type: String,
     required: true,
-    sparse: true,
+    default: false,
+    unique: true 
   },
   link: {
     type: String,
