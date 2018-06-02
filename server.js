@@ -20,10 +20,12 @@ app.set('view engine', 'handlebars');
 
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Articles";
 mongoose.Promise = Promise;
-
-mongoose.connect(MONGODB_URI);
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/Articles");
+}
 
 app.get("/", function(req, res) {
     Article.find({"saved": false}, function(error, data) {
