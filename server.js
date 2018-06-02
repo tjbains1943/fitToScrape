@@ -20,8 +20,7 @@ app.set('view engine', 'handlebars');
 
 
 
-var MONGODB_URI = "mongodb://tjbains:murray1@ds245240.mlab.com:45240/heroku_gwl6ljf6"
-// || "mongodb://localhost/Article";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Articles";
 mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
