@@ -1,0 +1,31 @@
+<!--Homepage-->
+<div class="container">
+    <div class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1> Mongo Scraper</h1>
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        {{#if article}} {{#each article}}
+        <div class="panel panel-default border mb-4 shadow">
+            <div class="panel-heading bg-primary text-white">
+                <h4>{{this.title}}</h4>
+                <img src="{{this.img}}"></img>
+            </div>
+            <div class="panel-body">
+                <a class="link" href={{this.link}} target="_blank">{{this.link}}</a>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary save" data-id={{this._id}}>Save Article</button>
+            </div>
+        </div>
+        {{/each}} {{else}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
