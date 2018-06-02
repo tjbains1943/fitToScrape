@@ -4,12 +4,20 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var request = require("request");
 var exphbs  = require('express-handlebars');
-var port = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000
 var cheerio = require("cheerio");
 var path = require("path");
 var app = express();
 var Note = require("./models/notes.js");
 var Article = require("./models/articles.js");
+
+mongoose.Promise = Promise;
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/Articles");
+}
+
 app.use(express.static('public'));
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
